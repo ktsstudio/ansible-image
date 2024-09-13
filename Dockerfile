@@ -12,15 +12,13 @@ RUN set -xe \
     && pip3 install ansible==${ANSIBLE_VERSION} boto3 \
     && apk del build-dependencies \
     && rm -rf /var/cache/apk/* \
-    && mkdir -p /etc/ansible \
-    && echo -e "[local]\nlocalhost ansible_connection=local" > \
-      /etc/ansible/hosts \
     && cp /usr/bin/envsubst /usr/local/bin/envsubst
 
 # ####################################################################################################################
-
 
 RUN pip3 install requests python-gitlab python-dotenv
 
 
 WORKDIR /ansible
+
+CMD []
